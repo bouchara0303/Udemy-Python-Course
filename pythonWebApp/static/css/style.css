@@ -1,0 +1,38 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #444;
+}
+
+header {
+	background-color: blue;
+	width: 100%;
+	height: 40px;
+	opacity: .6;
+	margin-bottom: 20px;
+	border-radius: 5px;
+}
+
+header h1
+.container {
+	background-color: #24ff15;
+	text-align: center;
+	color: black;
+}
+
+.menu {
+	float: right;
+	margin-top: 10px;
+}
+
+.menu li {
+	display: inline;
+}
+
+.menu li a {
+	text-decoration: none;
+	color: black;
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 16px;
+}
