@@ -46,7 +46,7 @@ def addBook():
     if (t == "") or (a == "") or (y == "") or (i == ""):
         pass
     else:
-        if len(backend.search(t, a, y, i)) == 0:
+        if not backend.search(t, a, y, i):
             backend.insert(t, a, y, i)
             viewBooks()
     viewBooks()
