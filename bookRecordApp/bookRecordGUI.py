@@ -8,16 +8,21 @@ import backend
 
 #Returns a tuple for selected book
 def getSelectedRow(event):
-    global selectedBookTuple
-    selectedBookTuple = list.get(list.curselection()[0])
-    titleLabel.delete(0,END)
-    titleLabel.insert(END, selectedBookTuple[1])
-    authorLabel.delete(0,END)
-    authorLabel.insert(END, selectedBookTuple[2])
-    yearLabel.delete(0,END)
-    yearLabel.insert(END, selectedBookTuple[3])
-    isbnLabel.delete(0,END)
-    isbnLabel.insert(END, selectedBookTuple[4])
+    #Accounts for empty Listbox widget
+    try:
+        global selectedBookTuple
+        index = list.curselection()[0]
+        selectedBookTuple = list.get(index)
+        titleLabel.delete(0,END)
+        titleLabel.insert(END, selectedBookTuple[1])
+        authorLabel.delete(0,END)
+        authorLabel.insert(END, selectedBookTuple[2])
+        yearLabel.delete(0,END)
+        yearLabel.insert(END, selectedBookTuple[3])
+        isbnLabel.delete(0,END)
+        isbnLabel.insert(END, selectedBookTuple[4])
+    except IndexError:
+        pass
 
 #View all books in Listbox widget
 def viewBooks():
@@ -48,13 +53,21 @@ def addBook():
 
 #Updates entries in Database
 def updateEntry():
-    backend.update(selectedBookTuple[0], titleText.get(), authorText.get(), yearText.get(), isbnText.get())
-    viewBooks()
+    #Accounts for empty Listbox widget
+    try:
+        backend.update(selectedBookTuple[0], titleText.get(), authorText.get(), yearText.get(), isbnText.get())
+        viewBooks()
+    except NameError:
+        pass
 
 #Deletes entries from Database
 def deleteEntry():
-    backend.delete(selectedBookTuple[0])
-    viewBooks()
+    #Accounts for empty Listbox widget
+    try:
+        backend.delete(selectedBookTuple[0])
+        viewBooks()
+    except NameError:
+        pass
 
 #Open window
 window = Tk()
