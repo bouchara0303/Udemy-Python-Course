@@ -1,2 +1,3 @@
-#Ignore .pyc files
+#Ignore .pyc files and .ipynb_checkpoints folders
 *.pyc
+*.ipynb_checkpoints
